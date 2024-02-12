@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="2f14e053-14b4-4cfb-817a-90929e55cce6" name="Changes" comment="admin order done">
+      <change beforePath="$PROJECT_DIR$/src/service/AddProductService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/AddProductService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/uikit/AddProduct.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/uikit/AddProduct.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/uikit/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/uikit/List.vue" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2SZY9L2n4GEOLy1kpbQleN1Esjb" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Java Cources/start work/sakai-vue&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Java Cources\\start work\\sakai-vue\\node_modules\\prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.2.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Java Cources\start work\sakai-vue\src\views\pages\auth" />
+      <recent name="C:\Java Cources\start work\sakai-vue\src" />
+      <recent name="C:\Java Cources\start work\sakai-vue" />
+      <recent name="C:\Java Cources\start work\sakai-vue\src\store" />
+      <recent name="C:\Java Cources\start work\sakai-vue\src\service" />
+    </key>
+  </component>
+  <component name="RunManager" selected="npm.dev">
+    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="npm.build" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2f14e053-14b4-4cfb-817a-90929e55cce6" name="Changes" comment="" />
+      <created>1689355417624</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1689355417624</updated>
+      <workItem from="1689355418809" duration="8145000" />
+      <workItem from="1689661032637" duration="806000" />
+      <workItem from="1689661941544" duration="16410000" />
+      <workItem from="1689679996465" duration="7963000" />
+      <workItem from="1689747124984" duration="14851000" />
+      <workItem from="1689834127615" duration="24387000" />
+      <workItem from="1689920735803" duration="33991000" />
+      <workItem from="1690216060369" duration="4926000" />
+      <workItem from="1690266227643" duration="18202000" />
+      <workItem from="1690353841721" duration="1241000" />
+      <workItem from="1690397135613" duration="3005000" />
+      <workItem from="1690441200702" duration="4616000" />
+      <workItem from="1690964211956" duration="1325000" />
+      <workItem from="1690965576314" duration="54000" />
+      <workItem from="1690965663889" duration="545000" />
+      <workItem from="1690966623204" duration="753000" />
+      <workItem from="1691225166307" duration="780000" />
+      <workItem from="1691226389142" duration="18867000" />
+      <workItem from="1691387998994" duration="15369000" />
+      <workItem from="1691482814965" duration="2585000" />
+      <workItem from="1691576479015" duration="13186000" />
+      <workItem from="1691648687322" duration="21501000" />
+      <workItem from="1691745854641" duration="23552000" />
+      <workItem from="1691864954043" duration="780000" />
+      <workItem from="1691999076254" duration="16756000" />
+      <workItem from="1692080827246" duration="14530000" />
+      <workItem from="1692169161607" duration="9385000" />
+      <workItem from="1692256548287" duration="1401000" />
+      <workItem from="1692273174903" duration="714000" />
+      <workItem from="1692339170384" duration="20297000" />
+      <workItem from="1692879022063" duration="615000" />
+      <workItem from="1693894853060" duration="1433000" />
+      <workItem from="1701348153866" duration="904000" />
+      <workItem from="1707297040338" duration="4781000" />
+      <workItem from="1707303165873" duration="18000" />
+      <workItem from="1707303597996" duration="221000" />
+      <workItem from="1707387073393" duration="10420000" />
+      <workItem from="1707722780636" duration="9055000" />
+    </task>
+    <task id="LOCAL-00001" summary="Added auth, jwtToken">
+      <created>1689767989691</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1689767989691</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Added new product, status, image">
+      <created>1689927345475</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1689927345475</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Added imageId">
+      <created>1689940543489</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1689940543489</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Added list product">
+      <created>1690197175749</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1690197175749</updated>
+    </task>
+    <task id="LOCAL-00005" summary="ProductItem.vue">
+      <created>1691777056678</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1691777056678</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Order done">
+      <created>1692102601539</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1692102601539</updated>
+    </task>
+    <task id="LOCAL-00007" summary="admin order done">
+      <created>1692445498784</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1692445498784</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Added auth, jwtToken" />
+    <MESSAGE value="Added new product, status, image" />
+    <MESSAGE value="Added imageId" />
+    <MESSAGE value="Added list product" />
+    <MESSAGE value="basket done" />
+    <MESSAGE value="ProductItem.vue" />
+    <MESSAGE value="Order done" />
+    <MESSAGE value="admin order done" />
+    <option name="LAST_COMMIT_MESSAGE" value="admin order done" />
+  </component>
+</project>
