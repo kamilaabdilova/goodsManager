@@ -15,12 +15,12 @@ async function getAllProduct() {
         for (let i = 0; i < response.length; i++) {
           let item = response[i]
           products.push({
-            category: item.category,
+            category: item.productCategory,
             description: item.description,
             id: item.id,
             image: item.image,
-            inventoryStatus: item.status,
-            // name: 'null',
+            status: item.status,
+            name: item.name,
             price: item.price
           })
         }
@@ -45,8 +45,9 @@ const sortOptions = ref([
 ]);
 
 onMounted(() => {
-  // productService.getProductsSmall().then((data) => (dataviewValue.value = data));
+   //productService.getProductsSmall().then((data) => (dataviewValue.value = data));
   getAllProduct();
+  console.log(dataviewValue , 'jsd')
 });
 const addToBasket = async (product) => {
   const productNew = {
@@ -95,7 +96,6 @@ const onSortChange = (event) => {
 
 
 </script>
-
 <template>
   <div class="grid">
     <div class="col-12">
@@ -125,13 +125,11 @@ const onSortChange = (event) => {
                   <div class="flex align-items-center justify-content-between">
                     <div class="flex align-items-center">
                       <i class="pi pi-tag mr-2"></i>
-                      <span
-                          class="font-semibold">{{
-                          slotProps.data.category === null ? ' ' : slotProps.data.category.nameCategory
-                        }}</span>
+                      <span class="font-semibold">{{ slotProps.data.productCategory ? slotProps.data.productCategory.name : '' }}</span>
+
                     </div>
                     <span class="product-badge">{{
-                        slotProps.data.inventoryStatus === null ? ' ' : slotProps.data.inventoryStatus.status
+                        slotProps.data.status === null ? ' ' : slotProps.data.status.status
                       }}</span>
                   </div>
                   <div class="text-center">

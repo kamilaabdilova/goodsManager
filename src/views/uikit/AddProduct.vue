@@ -12,13 +12,10 @@
               </template>
             </FileUpload>
             <label for="description" class="block text-900 text-xl font-medium mb-2 mt-5">Name product</label>
-            <input v-model="productData.description" type="text" placeholder="Name product" class="w-full mb-5 " style="padding: 1rem" />
+            <input v-model="productData.name" type="text" placeholder="Name product" class="w-full mb-5 " style="padding: 1rem" />
 
             <label for="price" class="block text-900 text-xl font-medium mb-2">Price</label>
             <input v-model="productData.price" type="number" placeholder="Price" class="w-full mb-5" style="padding: 1rem" />
-
-            <label for="price" class="block text-900 text-xl font-medium mb-2">Quantity</label>
-            <input v-model="productData.price" type="number" placeholder="Quantity" class="w-full mb-5" style="padding: 1rem" />
 
             <label for="description" class="block text-900 text-xl font-medium mb-2">Description</label>
             <input v-model="productData.description" type="text" placeholder="Description" class="w-full mb-5" style="padding: 1rem" />
@@ -43,6 +40,7 @@ let productData = reactive({
   imageId: '',
   price: '',
   description: '',
+  name: '',
   categoryId: null,
   statusId: null,
 });
@@ -60,8 +58,7 @@ const uploadedImage = ref();
 
 const productStatuses = ref([
   { name: 'IN STOCK', code: '1' },
-  { name: 'LOW STOCK', code: '2' },
-  { name: 'OUT OF STOCK', code: '3' }
+  { name: 'OUT OF STOCK', code: '2' }
 ]);
 
 async function addNewProduct(fileId) {
@@ -71,6 +68,7 @@ async function addNewProduct(fileId) {
     productData.imageId = '';
     productData.price = '';
     productData.description = '';
+    productData.name = '';
     productData.categoryId = null;
     productData.statusId = null;
     products.value.push(response.data);
