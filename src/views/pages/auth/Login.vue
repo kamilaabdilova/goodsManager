@@ -69,7 +69,6 @@ const userForm = reactive({
 
 const handleLogin = async () => {
   loading.value = true;
-
   const response = await store.dispatch('auth/signIn', userForm)
   if(response.status == 201){
     router.push('/')

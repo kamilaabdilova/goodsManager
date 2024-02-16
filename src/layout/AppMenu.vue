@@ -23,7 +23,8 @@ const model = ref([
             // { label: 'Overlay', icon: 'pi pi-fw pi-clone', to: '/uikit/overlay' },
             { label: 'Media', icon: 'pi pi-fw pi-image', to: '/uikit/media' },
             // { label: 'Menu', icon: 'pi pi-fw pi-bars', to: '/uikit/menu', preventExact: true },
-            { label: 'Message', icon: 'pi pi-fw pi-comment', to: '/uikit/message' },
+            { label: 'Storage', icon: 'pi pi-fw pi-comment', to: '/uikit/storage' },
+          {label: 'Supply', icon: 'pi pi-fw pi-comment', to: '/uikit/supply'},
             // { label: 'File', icon: 'pi pi-fw pi-file', to: '/uikit/file' },
             // { label: 'Chart', icon: 'pi pi-fw pi-chart-bar', to: '/uikit/charts' },
             // { label: 'Misc', icon: 'pi pi-fw pi-circle', to: '/uikit/misc' }
@@ -64,7 +65,7 @@ const model = ref([
                     },
                     {
                         label: 'Register client',
-                        icon: 'pi pi-fw pi-times-circle',
+                        icon: 'pi pi-fw pi-user',
                         to: '/auth/register'
                     }
                     // {

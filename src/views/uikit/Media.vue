@@ -52,34 +52,34 @@ onMounted(() => {
 
 <template>
     <div class="grid p-fluid">
-<!--        <div class="col-12">-->
-<!--            <div class="card">-->
-<!--                <h5>Carousel</h5>-->
-<!--                <Carousel :value="products" :numVisible="3" :numScroll="3" :circular="false" :responsiveOptions="carouselResponsiveOptions">-->
-<!--                    <template #item="product">-->
-<!--                        <div class="product-item">-->
-<!--                            <div class="product-item-content">-->
-<!--                                <div class="mb-3">-->
-<!--                                    <img :src="'demo/images/product/' + product.data.image" :alt="product.data.name" class="product-image" />-->
-<!--                                </div>-->
-<!--                                <div>-->
-<!--                                    <h4 class="mb-1">-->
-<!--                                        {{ product.data.name }}-->
-<!--                                    </h4>-->
-<!--                                    <h6 class="mt-0 mb-3">${{ product.data.price }}</h6>-->
-<!--                                    <span :class="'product-badge status-' + product.data.inventoryStatus.toLowerCase()">{{ product.data.inventoryStatus }}</span>-->
-<!--                                    <div class="car-buttons mt-5">-->
-<!--                                        <Button type="button" class="p-button p-button-rounded mr-2" icon="pi pi-search"></Button>-->
-<!--                                        <Button type="button" class="p-button-success p-button-rounded mr-2" icon="pi pi-star-fill"></Button>-->
-<!--                                        <Button type="button" class="p-button-help p-button-rounded" icon="pi pi-cog"></Button>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </template>-->
-<!--                </Carousel>-->
-<!--            </div>-->
-<!--        </div>-->
+        <div class="col-12">
+            <div class="card">
+                <h5>Carousel</h5>
+                <Carousel :value="products" :numVisible="3" :numScroll="3" :circular="false" :responsiveOptions="carouselResponsiveOptions">
+                    <template #item="product">
+                        <div class="product-item">
+                            <div class="product-item-content">
+                                <div class="mb-3">
+                                    <img :src="'demo/images/product/' + product.data.image" :alt="product.data.name" class="product-image" />
+                                </div>
+                                <div>
+                                    <h4 class="mb-1">
+                                        {{ product.data.name }}
+                                    </h4>
+                                    <h6 class="mt-0 mb-3">${{ product.data.price }}</h6>
+                                    <span :class="'product-badge status-' + product.data.inventoryStatus.toLowerCase()">{{ product.data.inventoryStatus }}</span>
+                                    <div class="car-buttons mt-5">
+                                        <Button type="button" class="p-button p-button-rounded mr-2" icon="pi pi-search"></Button>
+                                        <Button type="button" class="p-button-success p-button-rounded mr-2" icon="pi pi-star-fill"></Button>
+                                        <Button type="button" class="p-button-help p-button-rounded" icon="pi pi-cog"></Button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </Carousel>
+            </div>
+        </div>
 
         <div class="col-12">
             <div class="card">

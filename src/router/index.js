@@ -116,10 +116,15 @@ const router = createRouter({
                 //     ]
                 // },
                 {
-                    path: '/uikit/message',
-                    name: 'message',
-                    component: () => import('@/views/uikit/Messages.vue')
+                    path: '/uikit/storage',
+                    name: 'storage',
+                    component: () => import('@/views/uikit/Storage.vue')
                 },
+                {
+                    path: '/uikit/supply',
+                    name: 'supply',
+                    component: () => import('@/views/uikit/Supply.vue')
+                }
                 // {
                 //     path: '/uikit/file',
                 //     name: 'file',

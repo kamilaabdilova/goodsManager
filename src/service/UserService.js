@@ -4,18 +4,19 @@ import axios from 'axios';
 import $api from '@/http'
 
 
-const API_URL = "http://localhost:8080";
+const API_URL = "http://localhost:8081";
 
-async function registerUser(username, email, password, confirmPassword) {
+async function registerUser(surname, name, patronymic, typeOfClient, discount) {
     console.log('we are in service');
     const params = {
-        email: email,
-        password: password,
-        username: username,
-        confirmPassword: confirmPassword
+        surname: surname,
+        name: name,
+        patronymic: patronymic,
+        typeOfClient: typeOfClient,
+        discount: discount
     };
     console.log('params is: ', params);
-    const response = await axios.post(API_URL + '/auth/registration', params);
+    const response = await $api.post( '/clients', params);
     console.log(response);
     return response;
 }

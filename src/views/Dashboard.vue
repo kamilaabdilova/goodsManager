@@ -137,8 +137,8 @@ watch(
           <div class="flex justify-content-between mb-3">
             <div>
               <span class="block text-500 font-medium mb-3">
-                <RouterLink to="/uikit/message" class="p-link layout-topbar-button">
-                Messages
+                <RouterLink to="/uikit/storage" class="p-link layout-topbar-button">
+                Storages
                   </RouterLink>
               </span>
             </div>
