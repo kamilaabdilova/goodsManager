@@ -13,6 +13,20 @@ async function addProduct(productData, statusId, categoryId) {
     console.log(response);
     return response;
 }
+export async function addItemToStorage(productId, quantity, id) {
+    try {
+        const response = await $api.post('/api/storageItem', {
+            productId: productId,
+            quantity: quantity,
+            storageId: id
+        });
+        console.log('Item added to storage:', response.data);
+        // Возможно, здесь можно предпринять дополнительные действия после успешного добавления элемента на сервере
+    } catch (error) {
+        console.error('Error adding item to storage:', error);
+        throw error;
+    }
+}
 
 function uploadImage(options) {
     const resp = $api.post('/api/products/upload', options);

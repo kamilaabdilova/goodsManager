@@ -1,7 +1,7 @@
 <template>
   <div class="col-12">
     <div class="card">
-      <h5>Your basket:</h5>
+      <h5>Client goods:</h5>
       <RouterLink v-if="$route.path !== '/uikit/list'" to="/uikit/list">
         <Button class="p-button-primary" label="Back to catalog"/>
       </RouterLink>
@@ -15,8 +15,9 @@
                <img style="width: 140px; height: 100px"
                     :src="'data:image/png;base64,' + item.image.image"
                     :alt="item.image.name"/>
-               <div class="font-semibold">{{ item.category == null ? '' : item.category.nameCategory }}</div>
-               <div>{{ item.description }}</div>
+               <div class="font-semibold">{{ item.category == null ? '' : item.category.name }}</div>
+               <div class="text-2xl font-semibold">{{ item.name }}</div>
+               <div class="text-2xl font-semibold">{{ item.description }}</div>
                <div class="text-2xl font-semibold">${{ item.price }}</div>
              </router-link>
              <Button icon="pi pi-trash " @click="removeFromBasket(item)"/>
@@ -25,9 +26,17 @@
       </div>
       <h5>Number of products in the basket : {{ basketListValue.baskets.length }}</h5>
       <h5>Total price: ${{ calculateTotalPrice() }}</h5>
-      <router-link to="/uikit/order">
-        <Button class="p-button-primary" label="Оформить заказ"/>
-      </router-link>
+
+
+        <div>
+          <Button class="p-button-primary" label="Оформить покупку"/>
+          <span style="margin-left: 15px;"></span> <!-- Добавляем отступ -->
+          <router-link to="/uikit/order">
+            <Button class="p-button-primary" label="Оформить доставку"/>
+          </router-link>
+        </div>
+
+
     </div>
   </div>
 </template>

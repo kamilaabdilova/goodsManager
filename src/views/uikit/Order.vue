@@ -18,25 +18,15 @@
             <label for="date" class="block text-900 text-xl font-medium mb-2">Order Date</label>
             <input v-model="selectedDate" id="date" type="date" class="w-full md:w-30rem mb-5" style="padding: 1rem"
                    :min="minDate"/>
-            <label for="payment" class="block text-900 font-medium text-xl mb-2">Payment method:</label>
-            <div class="mb-5">
-              <div class="flex items-center mb-2">
-                <input v-model="selectedPayment" type="radio" id="cash" value="cash" class="mr-2"
-                       :disabled="selectedPayment === 'card'"/>
-                <label for="cash">Pay with cash</label>
-              </div>
-              <div class="flex items-center">
-                <input v-model="selectedPayment" type="radio" id="card" value="card" class="mr-2"
-                       :disabled="selectedPayment === 'cash'"/>
-                <label for="card">Pay with card</label>
-              </div>
-            </div>
-            <Button class="p-button-primary" @click="submitOrder" label="Оформить заказ"/>
           </div>
-          <div class="my-2"></div>
-          <RouterLink to="/uikit/basket">
-            <Button class="p-button-primary" label="Back to basket"/>
-          </RouterLink>
+            <div>
+              <Button class="p-button-primary" @click="submitOrder" label="Оформить доставку"/>
+              <span style="margin-left: 10px;"></span> <!-- Добавляем отступ -->
+              <RouterLink to="/uikit/basket">
+                <Button class="p-button-primary" label="Back to basket"/>
+              </RouterLink>
+            </div>
+
         </div>
       </div>
     </div>
@@ -82,7 +72,6 @@ const submitOrder = async () => {
       products: products(),
       phone: formattedPhone.value,
       date: selectedDate.value,
-      payment: selectedPayment.value === 'card',
       totalPrice: getTotalPrice()
     };
     toast.add({severity: 'success', summary: 'Your order has been successfully placed!', life: 3000});

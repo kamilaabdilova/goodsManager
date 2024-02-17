@@ -6,8 +6,9 @@
       <img style="width: 500px; height: 600px"
            v-if="product.image && product.image.image"
            :src="'data:image/png;base64,' + product.image.image"/>
-      <div class="font-semi-bold">{{ product.category == null ? '' : product.category.nameCategory }}</div>
-      <div>{{ product.description }}</div>
+      <div class="font-semi-bold">{{ product.category == null ? '' : product.category.name }}</div>
+      <div class="text-2xl font-semi-bold">{{ product.description }}</div>
+      <div class="text-2xl font-semi-bold">{{ product.name }}</div>
       <div class="text-2xl font-semi-bold">${{ product.price }}</div>
     </div>
   </div>
@@ -27,7 +28,8 @@ const product = reactive({
   category: null,
   price: null,
   image: null,
-  description: null
+  description: null,
+  name: null
 })
 
 const productList = ref([])
@@ -44,7 +46,8 @@ const getAllProduct = async () => {
         image: item.image,
         inventoryStatus: item.status,
         // name: 'null',
-        price: item.price
+        price: item.price,
+        name: item.name
       })
     }
 
@@ -58,6 +61,7 @@ const getProductById = async () => {
   product.price = foundProduct.price;
   product.id = foundProduct.id;
   product.image = foundProduct.image;
+  product.name = foundProduct.name
 }
 
 onMounted(async () => {

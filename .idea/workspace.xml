@@ -5,22 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f14e053-14b4-4cfb-817a-90929e55cce6" name="Changes" comment="admin order done">
-      <change afterPath="$PROJECT_DIR$/src/service/StorageService.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/uikit/Supply.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/dist/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/AppFooter.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/AppFooter.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/layout/AppMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/AppMenu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/AppTopbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/AppTopbar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/UserService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/UserService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Dashboard.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Dashboard.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/pages/auth/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/pages/auth/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/pages/auth/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/pages/auth/Register.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/AddProductService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/AddProductService.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/uikit/Basket.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/uikit/Basket.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/uikit/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/uikit/List.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/uikit/Media.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/uikit/Media.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/uikit/Messages.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/uikit/Storage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/uikit/Order.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/uikit/Order.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/uikit/ProductItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/uikit/ProductItem.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/uikit/Storage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/uikit/Storage.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +48,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/ЦЭЗ/sakai-vue",
+    "last_opened_file_path": "C:/ЦЭЗ/goodsManager",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.standard": "true",
     "node.js.detected.package.tslint": "true",
@@ -158,7 +151,8 @@
       <workItem from="1707809599848" duration="6729000" />
       <workItem from="1707840335740" duration="3000000" />
       <workItem from="1707993045187" duration="11667000" />
-      <workItem from="1708088206865" duration="12630000" />
+      <workItem from="1708088206865" duration="12680000" />
+      <workItem from="1708180458710" duration="11664000" />
     </task>
     <task id="LOCAL-00001" summary="Added auth, jwtToken">
       <created>1689767989691</created>

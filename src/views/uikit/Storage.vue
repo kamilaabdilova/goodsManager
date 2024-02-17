@@ -1,9 +1,10 @@
 <script setup>
-import {deleteStorage, editStorage, getListStorage} from "@/service/StorageService";
+import {deleteStorage, getListStorage} from "@/service/StorageService";
 import {onMounted, ref} from "vue";
 import {addStorage} from "@/service/StorageService";
 import {useToast} from "primevue/usetoast";
 import {useStore} from "vuex";
+import {addItemToStorage, getListProduct} from "@/service/AddProductService";
 
 const storageValue = ref([]);
 const store = useStore()
@@ -70,18 +71,53 @@ async function removeStorage(data) {
 
   }
 }
-async function editExistingStorage(data) {
+// Добавленные состояния и методы для управления модальным окном добавления товаров
+const addGoodsModalVisible = ref(false);
+const selectedProduct = ref(null);
+const quantity = ref('');
+// Вспомогательный массив для выбора продуктов
+const productOptions = ref([]);
+const selectedStorageId = ref(null);
+function openAddGoodsModal(storageId) {
+  addGoodsModalVisible.value = true;
+  selectedStorageId.value = storageId;
+}
+
+function closeAddGoodsModal() {
+  addGoodsModalVisible.value = false;
+}
+
+async function addGoodsToStorage() {
   try {
-    // Вызов метода editStorage вашего сервиса
-    const response = await editStorage(data.id, storageValue.value);
-    return response;
+    // Проверяем, выбран ли продукт и указано ли количество
+    if (!selectedProduct.value || !quantity.value || !selectedStorageId.value) {
+      throw new Error('Please select a product, specify the quantity, and provide the storage ID.');
+    }
+
+    // Вызываем функцию addItemToStorage() с необходимыми параметрами
+    await addItemToStorage(selectedProduct.value.id, quantity.value, selectedStorageId.value);
+
+    console.log('Goods added to storage:', selectedProduct.value, quantity.value);
+    // После успешного добавления, закрываем модальное окно
+    closeAddGoodsModal();
   } catch (error) {
-    throw new Error("Error while editing storage: " + error);
+    console.error('Error while adding goods:', error);
+    toast.add({severity: 'error', summary: 'Failed to add goods', life: 3000});
   }
 }
 
-onMounted(() => {
-  getAllStorage()
+
+
+
+
+onMounted(async () => {
+  await getAllStorage()
+  try {
+    productOptions.value = await getListProduct();
+  } catch (error) {
+    console.error("Error loading product list:", error);
+    toast.add({severity: 'error', summary: 'Failed to load product list', life: 3000});
+  }
 });
 
 </script>
@@ -125,7 +161,7 @@ onMounted(() => {
           <Column style="width: 6rem;  justify-content: center; align-items: center;" class="text-center whitespace-nowrap border-b dark:border-dark-5">
             <template #body="{ data }">
               <div style="display: flex;">
-                <Button label="Edit"  @click="editExistingStorage(data.id)" class="p-button-outlined p-button-secondary p-button-sm mr-2 mb-2" style="font-size: 10px; padding: 4px 8px;"/>
+                <Button label="Add goods" @click="openAddGoodsModal(data.id)" class="p-button-outlined p-button-secondary p-button-sm mr-2 mb-2" style="font-size: 10px; padding: 4px 8px;"/>
                 <Button label="Delete"  @click="removeStorage(data.id)" class="p-button-outlined p-button-danger p-button-sm mr-2 mb-2" style="font-size: 10px; padding: 4px 8px;"/>
               </div>
             </template>
@@ -164,6 +200,34 @@ onMounted(() => {
       </div>
     </template>
   </Dialog>
+
+  <!-- Добавление модального окна для добавления товаров -->
+  <Dialog v-model="addGoodsModalVisible" :visible="addGoodsModalVisible" :modal="true" header="Add Goods" :closable="false">
+    <!-- Форма добавления товаров -->
+    <div class="p-fluid">
+      <div class="p-field mb-3">
+        <label for="product" class="label-bold">Product</label>
+        <Dropdown id="product" v-model="selectedProduct" :options="productOptions" optionLabel="name" class="p-inputtext-lg p-d-block"/>
+      </div>
+      <div class="p-field mb-3">
+        <label for="quantity" class="label-bold">Quantity</label>
+        <InputText id="quantity" v-model="quantity" class="p-inputtext-lg p-d-block"/>
+      </div>
+    </div>
+
+    <!-- Кнопки внизу модального окна -->
+    <template #footer>
+      <div class="p-grid p-justify-between">
+        <div class="p-col">
+          <Button label="Cancel" class="p-button-text" @click="closeAddGoodsModal()"/>
+        </div>
+        <div class="p-col">
+          <Button label="Add" class="p-button" @click="addGoodsToStorage(id)"/>
+        </div>
+      </div>
+    </template>
+  </Dialog>
+
 </template>
 
 <style scoped lang="scss">

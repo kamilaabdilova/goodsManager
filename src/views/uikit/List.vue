@@ -61,6 +61,7 @@ const addToBasket = async (product) => {
     category: product.category,
     description: product.description,
     id: product.id,
+    name: product.name,
     image: {
       id: product.image.id,
       name: product.image.name,
