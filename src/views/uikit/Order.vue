@@ -84,7 +84,7 @@ const submitOrder = async () => {
 
     const savedOrder = await saveOrder(orderData);
 
-    if (savedOrder.status === 200) {
+    if (savedOrder && savedOrder.status === 201) {
       toast.add({severity: 'success', summary: 'Your order has been successfully placed!', life: 3000});
       console.log('Order saved:', savedOrder);
     } else {
@@ -93,9 +93,8 @@ const submitOrder = async () => {
       console.error('Failed to save the order. Status:', savedOrder.status);
     }
   } catch (error) {
-    console.error('Error while saving the order:', error);
     // Показать сообщение об ошибке
-    toast.add({severity: 'error', summary: 'An error occurred while saving the order. Please try again later.', life: 3000});
+    console.log(error)
   }
 };
 
