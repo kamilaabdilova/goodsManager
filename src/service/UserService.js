@@ -12,8 +12,8 @@ async function registerUser(surname, name, patronymic, typeOfClient, discount) {
         surname: surname,
         name: name,
         patronymic: patronymic,
-        typeOfClient: typeOfClient,
-        discount: discount
+        clientTypeId: typeOfClient,
+        discountCategoryId: discount
     };
     console.log('params is: ', params);
     const response = await $api.post( '/clients', params);

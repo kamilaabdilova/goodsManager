@@ -10,26 +10,26 @@
             <span class="text-600 font-medium">Please register a client.</span>
           </div>
           <div>
-            <label for="email1" class="block text-900 text-xl font-medium mb-2">Surname</label>
-            <InputText id="email1" v-model="userForm.surname" type="text" placeholder="Username"
+            <label for="surname" class="block text-900 text-xl font-medium mb-2">Surname</label>
+            <InputText id="surname" v-model="userForm.surname" type="text" placeholder="surname"
                        class="w-full md:w-30rem mb-5" style="padding: 1rem"/>
 
-            <label for="email1" class="block text-900 text-xl font-medium mb-2">Name</label>
-            <InputText id="email1" v-model="userForm.name" type="text" placeholder="Email"
+            <label for="name" class="block text-900 text-xl font-medium mb-2">Name</label>
+            <InputText id="name" v-model="userForm.name" type="text" placeholder="name"
                        class="w-full md:w-30rem mb-5" style="padding: 1rem"/>
 
-            <label for="email1" class="block text-900 text-xl font-medium mb-2">Patronymic</label>
-            <InputText id="email1" v-model="userForm.patronymic" type="text" placeholder="Email"
+            <label for="patronymic" class="block text-900 text-xl font-medium mb-2">Patronymic</label>
+            <InputText id="patronymic" v-model="userForm.patronymic" type="text" placeholder="patronymic"
                        class="w-full md:w-30rem mb-5" style="padding: 1rem"/>
 
 
-            <label for="status" class="block text-900 text-xl font-medium mb-2">Type of Client</label>
-            <Dropdown v-model="userForm.typeOfClient" :options="typesClients" optionLabel="name" placeholder="Category"
+            <label for="typeOfClient" class="block text-900 text-xl font-medium mb-2">Type of Client</label>
+            <Dropdown v-model="userForm.typeOfClient" :options="typesClients" optionLabel="name" placeholder="typeOfClient"
                       class="w-full mb-5"/>
 
-            <label for="status" class="block text-900 text-xl font-medium mb-2">Discount</label>
+            <label for="discount" class="block text-900 text-xl font-medium mb-2">Discount</label>
             <Dropdown v-model="userForm.discount" :options="discountForClients" optionLabel="name"
-                      placeholder="Category" class="w-full mb-5"/>
+                      placeholder="discount" class="w-full mb-5"/>
 
             <Button :disabled="loading" @click="registerUser" label="Зарегистрировать клиента!"
                     class="w-full p-3 text-xl"></Button>
@@ -104,7 +104,7 @@ export default {
       try {
         console.log('we are here')
         console.log(this.userForm.surname, this.userForm.name, this.userForm.patronymic, this.userForm.typeOfClient, this.userForm.discount)
-        const response = await UserService.registerUser(this.userForm.surname, this.userForm.name, this.userForm.patronymic, this.userForm.typeOfClient, this.userForm.discount);
+        const response = await UserService.registerUser(this.userForm.surname, this.userForm.name, this.userForm.patronymic, this.userForm.typeOfClient.code, this.userForm.discount.code);
         this.toast.add({severity: 'success', summary: 'Success', detail: response, life: 3000});
         this.router.push('/');
       } catch (error) {

@@ -5,10 +5,8 @@ import {addStorage} from "@/service/StorageService";
 import {useToast} from "primevue/usetoast";
 import {useStore} from "vuex";
 import {addItemToStorage, getListProduct} from "@/service/AddProductService";
-
 const storageValue = ref([]);
 const store = useStore()
-
 async function getAllStorage() {
   try {
     const response = await getListStorage();
@@ -23,7 +21,6 @@ async function getAllStorage() {
     console.error(e);
   }
 }
-
 const modalVisible = ref(false);
 // Объект для хранения нового хранилища
 const newStorage = ref({
@@ -31,15 +28,12 @@ const newStorage = ref({
   address: '',
   storageCode: ''
 });
-
 function openModal() {
   modalVisible.value = true;
 }
-
 function closeModal() {
   modalVisible.value = false;
 }
-
 async function saveStorage() {
   try {
     const response = await addStorage(newStorage.value);
@@ -54,7 +48,6 @@ async function saveStorage() {
   } catch (error) {
     console.error("Error while adding storage:", error);
     toast.add({severity: 'error', summary: 'Failed to added storage', life: 3000});
-
   }
 }
 const toast = useToast();
@@ -68,7 +61,6 @@ async function removeStorage(data) {
   } catch (error) {
     console.error("Error while deleting storage:", error);
     toast.add({severity: 'error', summary: 'Failed to added storage', life: 3000});
-
   }
 }
 // Добавленные состояния и методы для управления модальным окном добавления товаров
@@ -82,22 +74,24 @@ function openAddGoodsModal(storageId) {
   addGoodsModalVisible.value = true;
   selectedStorageId.value = storageId;
 }
-
 function closeAddGoodsModal() {
   addGoodsModalVisible.value = false;
+  selectedProduct.value = null;
+  quantity.value = '';
+  selectedStorageId.value = null;
 }
-
 async function addGoodsToStorage() {
   try {
     // Проверяем, выбран ли продукт и указано ли количество
     if (!selectedProduct.value || !quantity.value || !selectedStorageId.value) {
       throw new Error('Please select a product, specify the quantity, and provide the storage ID.');
     }
-
     // Вызываем функцию addItemToStorage() с необходимыми параметрами
     await addItemToStorage(selectedProduct.value.id, quantity.value, selectedStorageId.value);
-
     console.log('Goods added to storage:', selectedProduct.value, quantity.value);
+    // После успешного добавления, обновляем список товаров
+    await getAllStorage();
+
     // После успешного добавления, закрываем модальное окно
     closeAddGoodsModal();
   } catch (error) {
@@ -105,11 +99,6 @@ async function addGoodsToStorage() {
     toast.add({severity: 'error', summary: 'Failed to add goods', life: 3000});
   }
 }
-
-
-
-
-
 onMounted(async () => {
   await getAllStorage()
   try {
@@ -119,7 +108,6 @@ onMounted(async () => {
     toast.add({severity: 'error', summary: 'Failed to load product list', life: 3000});
   }
 });
-
 </script>
 <template>
   <div class="grid">
@@ -158,7 +146,43 @@ onMounted(async () => {
               {{ data.storageCode }}
             </template>
           </Column>
-          <Column style="width: 6rem;  justify-content: center; align-items: center;" class="text-center whitespace-nowrap border-b dark:border-dark-5">
+          <Column header="Items" style="min-width: 15rem">
+            <template #body="{ data }">
+              <ul>
+                <li v-for="item in data.storageItems" :key="item.id">
+                  {{ item.product.name }}
+                </li>
+              </ul>
+            </template>
+          </Column>
+          <Column header="Price" style="min-width: 15rem">
+            <template #body="{ data }">
+              <ul>
+                <li v-for="item in data.storageItems" :key="item.id">
+                  {{ item.product.price }}
+                </li>
+              </ul>
+            </template>
+          </Column>
+          <Column header="Quantity" style="min-width: 15rem">
+            <template #body="{ data }">
+              <ul>
+                <li v-for="item in data.storageItems" :key="item.id">
+                  {{item.quantity }}
+                </li>
+              </ul>
+            </template>
+          </Column>
+          <Column header="Total price" style="min-width: 15rem">
+            <template #body="{ data }">
+              <ul>
+                <li v-for="item in data.storageItems" :key="item.id">
+                 {{ item.product.price * item.quantity }}$
+                </li>
+              </ul>
+            </template>
+          </Column>
+          <Column header="Actions" style="width: 6rem;  justify-content: center; align-items: center;" class="text-center whitespace-nowrap border-b dark:border-dark-5">
             <template #body="{ data }">
               <div style="display: flex;">
                 <Button label="Add goods" @click="openAddGoodsModal(data.id)" class="p-button-outlined p-button-secondary p-button-sm mr-2 mb-2" style="font-size: 10px; padding: 4px 8px;"/>
@@ -187,7 +211,6 @@ onMounted(async () => {
         <InputText id="storageCode" v-model="newStorage.storageCode" class="p-inputtext-lg p-d-block"/>
       </div>
     </div>
-
     <!-- Кнопки внизу модального окна -->
     <template #footer>
       <div class="p-grid p-justify-between">
@@ -200,7 +223,6 @@ onMounted(async () => {
       </div>
     </template>
   </Dialog>
-
   <!-- Добавление модального окна для добавления товаров -->
   <Dialog v-model="addGoodsModalVisible" :visible="addGoodsModalVisible" :modal="true" header="Add Goods" :closable="false">
     <!-- Форма добавления товаров -->
@@ -227,19 +249,28 @@ onMounted(async () => {
       </div>
     </template>
   </Dialog>
-
 </template>
-
 <style scoped lang="scss">
 ::v-deep(.p-datatable-frozen-tbody) {
   font-weight: bold;
 }
-
 ::v-deep(.p-datatable-scrollable .p-frozen-column) {
   font-weight: bold;
 }
-
 .label-bold {
   font-weight: bold;
+}
+.item-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item-list li {
+  border-bottom: 1px solid #ccc; /* Горизонтальная линия */
+  border-right: 1px solid #ccc; /* Вертикальная линия */
+  padding: 10px;
+  overflow: auto;
+  height: 40px; /* Фиксированная высота ячейки */
 }
 </style>

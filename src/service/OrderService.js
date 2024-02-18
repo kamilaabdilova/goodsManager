@@ -3,7 +3,7 @@ import $api from '@/http'
 async function saveOrder(orderData) {
     try {
         console.log('Trying to save order...');
-        const response = await $api.post('/order/save', orderData);
+        const response = await $api.post('/api/sale-items', orderData);
         console.log(response);
         if (response.status === 200) {
             console.log('Order saved successfully:', response.data);
@@ -26,8 +26,18 @@ async function getAllOrders() {
         return [];
     }
 }
+async function getAllClients() {
+    try {
+        const response = await $api.get('/clients');
+        return response.data;
+    } catch (error) {
+        console.error('Произошла ошибка:', error);
+        return [];
+    }
+}
 
 export {
     saveOrder,
-    getAllOrders
+    getAllOrders,
+    getAllClients
 }

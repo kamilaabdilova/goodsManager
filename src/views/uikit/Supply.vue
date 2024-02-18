@@ -1,5 +1,5 @@
 <script setup>
-import {deleteStorage, getListSupply} from "@/service/StorageService";
+import {getListStorage, getListSupply} from "@/service/StorageService";
 import {onMounted, ref} from "vue";
 import {addStorage} from "@/service/StorageService";
 
