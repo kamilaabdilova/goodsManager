@@ -6,14 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2f14e053-14b4-4cfb-817a-90929e55cce6" name="Changes" comment="admin order done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/layout/AppMenu.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/layout/AppMenu.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/AddProductService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/AddProductService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/uikit/Basket.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/uikit/Basket.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/uikit/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/uikit/List.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/uikit/Media.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/uikit/Media.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/service/OrderService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/OrderService.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/uikit/Order.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/uikit/Order.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/uikit/ProductItem.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/uikit/ProductItem.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/uikit/Storage.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/uikit/Storage.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/uikit/OrderAdmin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/uikit/OrderAdmin.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,30 +37,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/ЦЭЗ/goodsManager",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "C:\\Java Cources\\start work\\sakai-vue\\node_modules\\prettier",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2023.2.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/ЦЭЗ/goodsManager&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;C:\\Java Cources\\start work\\sakai-vue\\node_modules\\prettier&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2023.2.3\\plugins\\javascript-impl\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "vue.recent.templates": [
-      "Vue Composition API Component"
+  &quot;keyToStringList&quot;: {
+    &quot;vue.recent.templates&quot;: [
+      &quot;Vue Composition API Component&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\ЦЭЗ\goodsManager\src\views\uikit" />
@@ -153,6 +148,8 @@
       <workItem from="1707993045187" duration="11667000" />
       <workItem from="1708088206865" duration="12680000" />
       <workItem from="1708180458710" duration="11988000" />
+      <workItem from="1708257890254" duration="13751000" />
+      <workItem from="1708359393123" duration="9633000" />
     </task>
     <task id="LOCAL-00001" summary="Added auth, jwtToken">
       <created>1689767989691</created>

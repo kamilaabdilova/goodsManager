@@ -73,11 +73,11 @@ const submitOrder = async () => {
   try {
     const orderData = {
       clientId: selectedClient.value,
-      invoiceNumber: invoiceNumber.value,
+      numberNakladnoy: invoiceNumber.value,
       address: address.value,
       productIds: products(),
       phoneNumber: formattedPhone.value,
-      date: new Date(selectedDate.value).toLocaleDateString('en-CA'), // Формат даты через тире
+      schedule: new Date(selectedDate.value).toISOString(), // Формат даты через тире
       totalPrice: getTotalPrice(),
       quantity: store.state.basket.basket.length
     };
@@ -86,6 +86,8 @@ const submitOrder = async () => {
 
     if (savedOrder && savedOrder.status === 201) {
       toast.add({severity: 'success', summary: 'Your order has been successfully placed!', life: 3000});
+      await router.push('/uikit/orderAdmin')
+
       console.log('Order saved:', savedOrder);
     } else {
       // Показать сообщение об ошибке

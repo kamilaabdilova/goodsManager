@@ -1,78 +1,68 @@
 <template>
   <div>
-    <h3>Customer order list:</h3>
-    <table>
-      <thead>
-      <tr>
-        <th>Описание продукта</th>
-        <th>адрес</th>
-        <th>дата</th>
-        <th>Телефон</th>
-        <th>способ оплаты</th>
-        <th>Сумма заказа</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr v-for="order in allOrders" :key="order.id">
-        <td>{{ formatProductNames(order.products) }}</td>
-        <td>{{ order.address }}</td>
-        <td>{{ formatDate(order.date) }}</td>
-        <td>{{ order.phone }}</td>
-        <td>{{ order.payment ? 'Card' : 'Cash' }}</td>
-        <td>{{ order.totalPrice }}</td>
-      </tr>
-      </tbody>
-    </table>
+    <div class="card">
+      <DataTable :value="orders" :paginator="true" :rows="10" :rowsPerPageOptions="[5,10,20]">
+        <Column field="numberNakladnoy" header="Invoice Number" style="min-width: 5rem">
+          <template #body="{ data }">
+            {{ data.numberNakladnoy }}
+          </template>
+        </Column>
+        <Column field="Client name" header="Client name" style="min-width: 12rem">
+          <template #body="{ data }">
+            {{ data.client.name }}
+          </template>
+        </Column>
+        <Column field="phoneNumber" header="Phone Number" style="min-width: 12rem">
+          <template #body="{ data }">
+            {{ data.phoneNumber }}
+          </template>
+        </Column>
+        <Column field="address" header="Address" style="min-width: 12rem">
+          <template #body="{ data }">
+            {{ data.address }}
+          </template>
+        </Column>
+        <Column field="schedule" header="Order Date" style="min-width: 12rem">
+          <template #body="{ data }">
+            {{ data.schedule }}
+          </template>
+        </Column>
+        <Column field="quantity" header="Quantity" style="min-width: 5rem">
+          <template #body="{ data }">
+            {{ data.quantity }}
+          </template>
+        </Column>
+        <Column field="products" header="Products" style="min-width: 12rem">
+          <template #body="{ data }">
+            <span v-for="(product, index) in data.products" :key="index">
+              {{ product.name }}
+              <!-- Добавим запятую после каждого имени продукта, если это не последний элемент -->
+              <span v-if="index !== data.products.length - 1">, </span>
+            </span>
+          </template>
+        </Column>
+        <Column field="totalPrice" header="Total Price with discount" style="min-width: 8rem">
+          <template #body="{ data }">
+            {{ data.totalPrice }}
+          </template>
+        </Column>
+      </DataTable>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref, onMounted } from 'vue';
-import { getAllOrders } from "@/service/OrderService";
-import { format } from 'date-fns';
-import { getListProduct } from "@/service/AddProductService";
+import * as OrderService from "@/service/OrderService";
 
-const allOrders = ref([]);
-const productList = ref([]);
+const orders = ref([]);
 
-const formatDate = (date) => {
-  return format(new Date(date), 'dd.MM.yyyy');
-};
-const formatProductNames = (productIds) => {
-  return productIds.map((id) => {
-    let productItem = productList.value.find(product => product.id === id)
-    if(productItem !== undefined && productItem !== null){
-      return productItem.description + ", "
-    }
-  }).join("")
-};
 onMounted(async () => {
   try {
-    console.log('Mounting component...');
-    allOrders.value = await getAllOrders();
-    productList.value = await getListProduct();
+    orders.value = await OrderService.getAllOrders();
   } catch (error) {
     console.error('Error fetching orders:', error);
   }
 });
-
-
 </script>
 
-<style>
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-th, td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: center;
-}
-
-th {
-  background-color: #f2f2f2;
-}
-</style>
