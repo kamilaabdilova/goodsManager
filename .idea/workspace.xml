@@ -7,7 +7,6 @@
     <list default="true" id="2f14e053-14b4-4cfb-817a-90929e55cce6" name="Changes" comment="admin order done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/OrderService.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/OrderService.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/uikit/Order.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/uikit/Order.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/uikit/OrderAdmin.vue" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/uikit/OrderAdmin.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -150,6 +149,7 @@
       <workItem from="1708180458710" duration="11988000" />
       <workItem from="1708257890254" duration="13751000" />
       <workItem from="1708359393123" duration="9633000" />
+      <workItem from="1708421399124" duration="5195000" />
     </task>
     <task id="LOCAL-00001" summary="Added auth, jwtToken">
       <created>1689767989691</created>
