@@ -51,12 +51,11 @@
             {{ data.saleStatus.name }}
           </template>
         </Column>
-        <!-- Колонка для действий -->
         <Column header="Actions" style="min-width: 12rem">
           <template #body="{ data }">
             <button @click="viewOrder(data)" class="p-button p-button-text">View</button>
-            <button @click="sendOrder(data)" class="p-button p-button-text">Send</button>
-            <button @click="rejectOrder(data)" class="p-button p-button-text">Reject</button>
+            <button @click="openCommentModal(data)" class="p-button p-button-text">Send</button>
+            <button @click="openRejectModal(data)" class="p-button p-button-text">Reject</button>
           </template>
         </Column>
       </DataTable>
@@ -64,7 +63,6 @@
     <!-- Модальное окно для отображения информации о заказе -->
     <Dialog v-model="showModal" :visible="showModal" header="Order Details" class="order-details-dialog" :closable="false">
       <div v-if="selectedOrder" class="order-details">
-        <!-- Здесь можно отображать информацию о заказе -->
         <p><b>Client Name:</b> {{ selectedOrder.client.name }}</p>
         <p><b>Phone Number:</b> {{ selectedOrder.phoneNumber }}</p>
         <p><b>Address:</b> {{ selectedOrder.address }}</p>
@@ -76,9 +74,28 @@
         <p><b>Quantity:</b> {{ selectedOrder.quantity }}</p>
         <p><b>Total Price:</b> {{ selectedOrder.totalPrice }}</p>
         <p><b>Sale Status:</b> {{ selectedOrder.saleStatus.name }}</p>
-        <!-- Добавьте другие детали заказа по вашему усмотрению -->
         <div class="p-d-flex p-jc-end">
           <Button label="Close" icon="pi pi-times" class="p-button-text close-button" @click="resetModal" />
+        </div>
+      </div>
+    </Dialog>
+    <!-- Модальное окно для ввода комментария -->
+    <Dialog v-model="commentModalVisible" :visible="commentModalVisible" header="Enter Comment" class="comment-dialog" :closable="false">
+      <div class="comment-dialog-content">
+        <Textarea type="text" v-model="commentInput" class="p-inputtext-lg p-d-block"/>
+        <div style="margin-top: 1rem;" class=" p-d-flex p-jc-end">
+          <Button label="Save" icon="pi pi-check" @click="submitComment" style="margin-right: 2rem;" />
+          <Button label="Cancel" icon="pi pi-times" @click="closeCommentModal" />
+        </div>
+      </div>
+    </Dialog>
+
+    <Dialog v-model="rejectMessages" :visible="rejectMessages" header="Enter Comment" class="comment-dialog" :closable="false">
+      <div class="comment-dialog-content">
+        <Textarea type="text" v-model="rejectInput" class="p-inputtext-lg p-d-block"/>
+        <div style="margin-top: 1rem;" class=" p-d-flex p-jc-end">
+          <Button label="Save" icon="pi pi-check" @click="rejectComment" style="margin-right: 2rem;" />
+          <Button label="Cancel" icon="pi pi-times" @click="closeRejectModal" />
         </div>
       </div>
     </Dialog>
@@ -90,8 +107,11 @@ import { ref, onMounted } from 'vue';
 import * as OrderService from "@/service/OrderService";
 
 const orders = ref([]);
-
+const rejectMessages = ref(false);
+const commentModalVisible = ref(false);
+const commentInput = ref('');
 const showModal = ref(false);
+const rejectInput = ref('');
 const selectedOrder = ref(null);
 const viewOrder = async (order) => {
   try {
@@ -101,6 +121,46 @@ const viewOrder = async (order) => {
     console.error('Error viewing order:', error);
   }
 };
+
+const openCommentModal = (order) => {
+  selectedOrder.value = order;
+  commentModalVisible.value = true;
+};
+const openRejectModal = (order) => {
+  selectedOrder.value = order;
+  rejectMessages.value = true;
+};
+const closeCommentModal = () => {
+  commentModalVisible.value = false;
+  commentInput.value = '';
+};
+const closeRejectModal = () => {
+  rejectMessages.value = false;
+  commentInput.value = '';
+};
+const submitComment = async () => {
+  try {
+    await OrderService.markSaleItemAsSended(selectedOrder.value.id, commentInput.value);
+    console.log('Submitted comment:', commentInput.value);
+    selectedOrder.value.saleStatus.name = 'SENDET';
+    closeCommentModal();
+  } catch (error) {
+    console.error('Failed to submit comment:', error);
+  }
+};
+const rejectComment = async () => {
+  try {
+    await OrderService.markSaleItemAsReject(selectedOrder.value.id, rejectInput.value);
+    selectedOrder.value.saleStatus.name = 'REJECTED';
+    closeRejectModal();
+  } catch (error) {
+    console.error('Failed to submit comment:', error);
+  }
+};
+const resetModal = () => {
+  showModal.value = false;
+  selectedOrder.value = null;
+};
 onMounted(async () => {
   try {
     orders.value = await OrderService.getAllOrders();
@@ -109,19 +169,6 @@ onMounted(async () => {
     console.error('Error fetching orders:', error);
   }
 });
-
-// Метод для сброса модального окна
-const resetModal = () => {
-  showModal.value = false;
-  selectedOrder.value = null;
-};
-const sendOrder = (order) => {
-  // Логика для отправки заказа
-};
-
-const rejectOrder = (order) => {
-  // Логика для отклонения заказа
-};
 </script>
 <style scoped>
 .order-details-dialog {
@@ -134,6 +181,13 @@ const rejectOrder = (order) => {
 
 .close-button {
   margin-top: 1rem;
+}
+.comment-dialog {
+  width: 400px;
+}
+
+.comment-dialog-content {
+  padding: 20px;
 }
 </style>
 

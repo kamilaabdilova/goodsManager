@@ -30,27 +30,36 @@ async function getAllClients() {
         return [];
     }
 }
-export async function markSaleItemAsDone(saleItemId) {
+export async function markSaleItemAsSended(saleItemId, comment) {
     try {
-        const response = await $api.put(`/sale-items/${saleItemId}/done`);
+        const response = await $api.put(`/api/sale-items/${saleItemId}/sendet`, {
+            comments: comment
+        });
         return response.data;
     } catch (error) {
         throw new Error('Failed to mark sale item as done');
     }
 }
-// Метод для получения информации о товаре по его ID
-export async function getSaleItemById(itemId) {
+export async function markSaleItemAsReject(saleItemId, comment) {
     try {
-        // Выполняем GET-запрос к API для получения информации о товаре
-        const response = await $api.get(`api/sale-items/${itemId}`);
-        // Возвращаем данные о товаре из ответа API
+        const response = await $api.put(`/api/sale-items/${saleItemId}/reject`, {
+            comments: comment
+        });
         return response.data;
     } catch (error) {
-        // Если произошла ошибка при запросе, выводим ее в консоль и возвращаем null
+        throw new Error('Failed to mark sale item as done');
+    }
+}
+export async function getSaleItemById(itemId) {
+    try {
+        const response = await $api.get(`api/sale-items/${itemId}`);
+        return response.data;
+    } catch (error) {
         console.error('Error fetching sale item:', error);
         return null;
     }
 }
+
 export {
     saveOrder,
     getAllOrders,
