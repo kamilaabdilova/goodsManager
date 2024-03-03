@@ -53,15 +53,29 @@
         </Column>
         <Column header="Actions" style="min-width: 12rem">
           <template #body="{ data }">
-            <button @click="viewOrder(data)" class="p-button p-button-text">View</button>
-            <button @click="openCommentModal(data)" class="p-button p-button-text">Send</button>
-            <button @click="openRejectModal(data)" class="p-button p-button-text">Reject</button>
+            <!--            <button @click="viewOrder(data)" class="p-button p-button-icon p-button-sm">-->
+            <!--              <i class="pi pi-eye" style="font-size: 0.7rem;"></i>-->
+            <!--            </button>-->
+            <!--            <button @click="openCommentModal(data)" class="p-button p-button-icon p-button-sm">-->
+            <!--              <i class="pi pi-verified" style="font-size: 0.7rem;"></i>-->
+            <!--            </button>-->
+            <!--            <button @click="openRejectModal(data)" class="p-button p-button-icon p-button-sm">-->
+            <!--              <i class="pi pi-times" style="font-size: 0.7rem;"></i>-->
+            <!--            </button>-->
+            <Button @click="viewOrder(data)" icon="pi pi-eye" severity="secondary" text raised rounded aria-label="Bookmark" class="small-button"/>
+            <Button @click="openCommentModal(data)" icon="pi pi-check" severity="success" text raised rounded aria-label="Filter" class="small-button"/>
+            <Button @click="openRejectModal(data)" icon="pi pi-times" severity="danger" text raised rounded
+                    aria-label="Cancel" class="small-button"/>
+            <!--            <button @click="viewOrder(data)" class="p-button p-button-text">View</button>-->
+            <!--            <button @click="openCommentModal(data)" class="p-button p-button-text">Send</button>-->
+            <!--            <button @click="openRejectModal(data)" class="p-button p-button-text">Reject</button>-->
           </template>
         </Column>
       </DataTable>
     </div>
     <!-- Модальное окно для отображения информации о заказе -->
-    <Dialog v-model="showModal" :visible="showModal" header="Order Details" class="order-details-dialog" :closable="false">
+    <Dialog v-model="showModal" :visible="showModal" header="Order Details" class="order-details-dialog"
+            :closable="false">
       <div v-if="selectedOrder" class="order-details">
         <p><b>Client Name:</b> {{ selectedOrder.client.name }}</p>
         <p><b>Phone Number:</b> {{ selectedOrder.phoneNumber }}</p>
@@ -75,27 +89,29 @@
         <p><b>Total Price:</b> {{ selectedOrder.totalPrice }}</p>
         <p><b>Sale Status:</b> {{ selectedOrder.saleStatus.name }}</p>
         <div class="p-d-flex p-jc-end">
-          <Button label="Close" icon="pi pi-times" class="p-button-text close-button" @click="resetModal" />
+          <Button label="Close" icon="pi pi-times" class="p-button-text close-button" @click="resetModal"/>
         </div>
       </div>
     </Dialog>
     <!-- Модальное окно для ввода комментария -->
-    <Dialog v-model="commentModalVisible" :visible="commentModalVisible" header="Enter Comment" class="comment-dialog" :closable="false">
+    <Dialog v-model="commentModalVisible" :visible="commentModalVisible" header="Enter Comment" class="comment-dialog"
+            :closable="false">
       <div class="comment-dialog-content">
         <Textarea type="text" v-model="commentInput" class="p-inputtext-lg p-d-block"/>
         <div style="margin-top: 1rem;" class=" p-d-flex p-jc-end">
-          <Button label="Save" icon="pi pi-check" @click="submitComment" style="margin-right: 2rem;" />
-          <Button label="Cancel" icon="pi pi-times" @click="closeCommentModal" />
+          <Button label="Save" icon="pi pi-check" @click="submitComment" style="margin-right: 2rem;"/>
+          <Button label="Cancel" icon="pi pi-times" @click="closeCommentModal"/>
         </div>
       </div>
     </Dialog>
 
-    <Dialog v-model="rejectMessages" :visible="rejectMessages" header="Enter Comment" class="comment-dialog" :closable="false">
+    <Dialog v-model="rejectMessages" :visible="rejectMessages" header="Enter Comment" class="comment-dialog"
+            :closable="false">
       <div class="comment-dialog-content">
         <Textarea type="text" v-model="rejectInput" class="p-inputtext-lg p-d-block"/>
         <div style="margin-top: 1rem;" class=" p-d-flex p-jc-end">
-          <Button label="Save" icon="pi pi-check" @click="rejectComment" style="margin-right: 2rem;" />
-          <Button label="Cancel" icon="pi pi-times" @click="closeRejectModal" />
+          <Button label="Save" icon="pi pi-check" @click="rejectComment" style="margin-right: 2rem;"/>
+          <Button label="Cancel" icon="pi pi-times" @click="closeRejectModal"/>
         </div>
       </div>
     </Dialog>
@@ -103,7 +119,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import {ref, onMounted} from 'vue';
 import * as OrderService from "@/service/OrderService";
 
 const orders = ref([]);
@@ -185,9 +201,12 @@ onMounted(async () => {
 .comment-dialog {
   width: 400px;
 }
-
 .comment-dialog-content {
   padding: 20px;
+}
+.small-button {
+  font-size: 0.7rem; /* уменьшаем размер шрифта кнопок */
+  padding: 0.5rem 1rem; /* уменьшаем внутренние отступы кнопок */
 }
 </style>
 

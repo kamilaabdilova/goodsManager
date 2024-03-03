@@ -64,9 +64,19 @@ const router = createRouter({
                     component: () => import('@/views/uikit/OrderAdmin.vue')
                 },
                 {
+                    path: 'uikit/saleAdmin',
+                    name: 'saleAdmin',
+                    component: () => import('@/views/uikit/SaleAdmin.vue')
+                },
+                {
                     path: '/uikit/order',
                     name: 'order',
                     component: () => import('@/views/uikit/Order.vue')
+                },
+                {
+                    path: 'uikit/sale',
+                    name: 'sale',
+                    component: () => import('@/views/uikit/Sale.vue')
                 },
                 // {
                 //     path: '/uikit/tree',

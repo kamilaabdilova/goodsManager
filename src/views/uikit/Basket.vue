@@ -29,7 +29,9 @@
 
 
         <div>
-          <Button class="p-button-primary" label="Оформить покупку"/>
+          <router-link to="/uikit/sale">
+            <Button class="p-button-primary" label="Оформить покупку"/>
+          </router-link>
           <span style="margin-left: 15px;"></span> <!-- Добавляем отступ -->
           <router-link to="/uikit/order">
             <Button class="p-button-primary" label="Оформить доставку"/>

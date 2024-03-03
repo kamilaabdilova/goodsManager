@@ -19,6 +19,7 @@
                   placeholder="Password"
                   class="w-full mb-3"
                   inputClass="w-full"
+                  toggleMask
               >
               </Password>
               <label for="email1" class="block text-900 text-xl font-medium mb-2">Filial</label>

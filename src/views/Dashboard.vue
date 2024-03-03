@@ -165,5 +165,20 @@ watch(
           </div>
         </div>
       </div>
+
+      <div class="col-12 lg:col-6 xl:col-3">
+        <div class="card mb-0">
+          <div class="flex justify-content-between mb-3">
+            <div>
+              <RouterLink to="/uikit/saleAdmin" class="p-link layout-topbar-button">
+                All sales
+              </RouterLink>
+            </div>
+            <div class="flex align-items-center justify-content-center bg-blue-100 border-round" style="width: 2.5rem; height: 2.5rem">
+              <i class="pi pi-shopping-cart text-blue-500 text-xl"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 </template>
